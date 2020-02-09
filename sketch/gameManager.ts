@@ -82,10 +82,10 @@ class GameManager {
         fill('green')
         textFont('Quintessential')
         if (this.gamePage.checkIfGameIsComplete() && (this.gamePage.checkLevel() === 15)) {
-            text('Congratulation! You finished all the levels!! Good Job!', (windowWidth / 2), (windowHeight * 0.7))
+            text('Congratulations, you finished all the levels! Good job!', (windowWidth / 2), (windowHeight * 0.7))
         }
         if ((this.gamePage.isGameOver()) && this.gamePage.checkLives() === 1) {
-            text('GAME OVER!!', (windowWidth / 2), (windowHeight * 0.7))
+            text('GAME OVER!', (windowWidth / 2), (windowHeight * 0.7))
         }
 
 
@@ -107,11 +107,12 @@ class GameManager {
         fill('red')
         textAlign(CENTER, CENTER)
         strokeWeight(0)
-        textFont('Quintessential')
+        textFont('Lobster')
         text("Pompeius", (width / 2), (height / 9.5))
         textSize(18)
+        fill('white')
         textFont('Arial')
-        text(("Pick your music"), 90, 25)
+        text(("Choose music"), 90, 25)
 
         let gameOver = this.gamePage.isGameOver()
         if (this.isGameRunning && !gameOver) {
@@ -172,7 +173,7 @@ class GameManager {
 
     /** Runs when red avatar is pressed. */
     private redAvatarPressed() {
-        this.gamePage.setTheme('cartoons')
+        this.gamePage.setTheme('fire')
         this.arrayIndex = 0
         this.selectedAvatar = avatar.redAvatar
     }

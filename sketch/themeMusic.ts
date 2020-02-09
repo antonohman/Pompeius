@@ -15,14 +15,14 @@ class MusicChoice {
      * styles and creates options for the Music Selection
      */
     public createSelector() {
-        this.sel.position((20), (40))
-        this.sel.size(100, 40)
+        this.sel.position((30), (40))
+        this.sel.size(170, 40)
         this.sel.style('font-size', '18px')
-        this.sel.style('background-color', 'black')
-        this.sel.style('color', 'red')
+        this.sel.style('background-color', 'grey')
+        this.sel.style('color', 'white')
         this.sel.style('border', 'none')
 
-        this.sel.option('silence')
+        this.sel.option('No music selected')
         this.sel.option('punk')
         this.sel.option('metal')
         this.sel.option('pop')
@@ -54,7 +54,7 @@ class MusicChoice {
             popp.stop()
             punk.stop()
             metal.stop()
-        } else if (this.sel.value() === 'silence') {
+        } else if (this.sel.value() === 'No music selected') {
             popp.stop()
             punk.stop()
             metal.stop()

@@ -19,11 +19,11 @@ class ScoreTable {
     public draw() {
 
         fill('white')
-        text(this.listItemInPlayerTable, (width * 0.15), (height / 2))
+        text(this.listItemInPlayerTable, (width * 0.15), (height / 3 + 110))
         textSize(25)
-        fill('green')
+        fill('red')
         if (localStorage.getItem('scoretable') !== null) {
-            text('Highest Score', (width * 0.15), (height / 3 + 10))
+            text('Highscore', (width * 0.15), (height / 3 + 10))
         }
     }
 

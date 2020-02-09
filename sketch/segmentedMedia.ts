@@ -89,8 +89,8 @@ class SegmentedMedia {
                 
                 //Draws a rectangle around the selected Image
                 if (i === (this.selectedSegment + 1)) {
-                    stroke('hsla(160, 100%, 50%, 0.5)')
-                    strokeWeight(10)
+                    stroke('hsla(160, 100%, 50%, 1)')
+                    strokeWeight(3)
                     rect(this.segmentPosition[i], offsets[0] + (this.pieceHeight * i),
                         this.frameWidth, this.pieceHeight)
                 }
@@ -99,7 +99,7 @@ class SegmentedMedia {
                 textSize(20)
                 fill('white')
                 stroke(1)
-                text(("Loading level please wait.. "), width * 0.5, height * 0.5)
+                text(("Loading level... "), width * 0.5, height * 0.5)
             }
         }
     }
