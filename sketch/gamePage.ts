@@ -3,9 +3,18 @@ class GamePage {
     private segmentedMedia: SegmentedMedia
     private gameStatus: GameStatus
 
+    private exCheer: CheerText
+
+    private frames: number
+    private wait:number
+
     constructor() {
         this.segmentedMedia = new SegmentedMedia()
         this.gameStatus = new GameStatus()
+
+        this.exCheer = new CheerText()
+        this.frames = 0
+        this.wait = 100
     }
 
     /**
@@ -28,6 +37,17 @@ class GamePage {
         text('player: ' + playerSettings.getMyName(), (windowWidth / 1.2), (windowHeight / 7))
         text('Press Space to score', width * 0.75, height * 0.08, 300, 150)
         this.segmentedMedia.draw()
+        
+        if(this.gameStatus.showEx) {
+            if (this.frames <= this.wait) {
+            this.exCheer.drawExcellentCheer()
+        }
+            if (this.frames == this.wait) {
+                this.frames = 0
+                this.gameStatus.showEx = false
+            }
+        this.frames++
+        }
     }
 
     /** Checks if game is over */

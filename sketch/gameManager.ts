@@ -20,10 +20,7 @@ class GameManager {
     private selectedItemBox: string[]
     private arrayIndex: number
 
-    private greatCheer: CheerText
-    private excellentCheer: CheerText
-
-    constructor() {
+     constructor() {
         this.playerSettings = new PlayerSettings()
 
         this.startButton = new Button(-100, (height * 0.85), 100, 50, 10, 'Start game', 'green', this.startButtonPressed.bind(this))
@@ -34,10 +31,7 @@ class GameManager {
         this.redAvatarButton = new Button(-250, 210, 150, 150, 0, " ", "", this.redAvatarPressed.bind(this))
         this.blueAvatarButton = new Button(-50, 210, 150, 150, 0, " ", "", this.blueAvatarPressed.bind(this))
         this.greenAvatarButton = new Button(150, 210, 150, 150, 0, " ", "", this.greenAvatarPressed.bind(this))
-
-        this.greatCheer = new CheerText()
-        this.excellentCheer = new CheerText() 
-
+     
         this.arrayIndex = 0
         this.selectedAvatar = avatar.redAvatar
         this.selectedItemBox = ['Selected Red theme', 'Selected Blue theme', 'Selected Green theme']
@@ -117,9 +111,6 @@ class GameManager {
         fill('white')
         textFont('Arial')
         text(("Choose music"), 90, 25)
-
-        this.greatCheer.drawGreatCheer()
-        this.excellentCheer.drawExcellentCheer()
 
         let gameOver = this.gamePage.isGameOver()
         if (this.isGameRunning && !gameOver) {
