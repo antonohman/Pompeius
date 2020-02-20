@@ -8,7 +8,7 @@ class CheerText {
     }
 
     public drawExcellentCheer() {
-            image(this.excellentCheer, (width/2 - 230), (height/2 - 150))
+        image(this.excellentCheer, (width/2 - 230), (height/2 - 150))
     }
 
     public drawGreatCheer() {

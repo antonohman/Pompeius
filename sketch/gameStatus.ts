@@ -12,10 +12,8 @@ class GameStatus {
     public levelComplete: boolean
     private gameOver: boolean
 
-    public greatCheer1: CheerText
-    public excellentCheer1: CheerText
-
     public showEx: boolean
+    public showGr: boolean
     
 
     constructor() {
@@ -29,10 +27,8 @@ class GameStatus {
         this.levelComplete = false
         this.gameOver = false
 
-        this.greatCheer1 = new CheerText()
-        this.excellentCheer1 = new CheerText()
-
         this.showEx = false
+        this.showGr = false
     }
 
     /**Gets the game status */
@@ -48,7 +44,7 @@ class GameStatus {
     public setGameScore(offsets: number[], selectedSegmentPosition: number) {
         let stopDistance = abs(selectedSegmentPosition - offsets[1])
 
-        if (stopDistance < 50) {
+        if (stopDistance < 5) {
             this.segmentScore += 1000
             soundEffects.tadaaSound()
             this.showEx = true
@@ -56,13 +52,14 @@ class GameStatus {
         else if (stopDistance > 5 && stopDistance < 30) {
             this.segmentScore += 500
             soundEffects.yaaayySound()
-            // this.greatCheer.drawGreatCheer()
+            this.showGr = true
         }
         else {
             this.segmentScore += 0
             soundEffects.booooSound()
 
             this.showEx = false
+            this.showGr = false
         }
     }
 

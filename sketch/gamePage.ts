@@ -3,17 +3,19 @@ class GamePage {
     private segmentedMedia: SegmentedMedia
     private gameStatus: GameStatus
 
-    private exCheer: CheerText
+    private excellentCheer: CheerText
+    private greatCheer: CheerText
 
-    private frames: number
+    private frameCount: number
     private wait:number
 
     constructor() {
         this.segmentedMedia = new SegmentedMedia()
         this.gameStatus = new GameStatus()
 
-        this.exCheer = new CheerText()
-        this.frames = 0
+        this.excellentCheer = new CheerText()
+        this.greatCheer = new CheerText()
+        this.frameCount = 0
         this.wait = 100
     }
 
@@ -39,14 +41,25 @@ class GamePage {
         this.segmentedMedia.draw()
         
         if(this.gameStatus.showEx) {
-            if (this.frames <= this.wait) {
-            this.exCheer.drawExcellentCheer()
+            if (this.frameCount <= this.wait) {
+            this.excellentCheer.drawExcellentCheer()
         }
-            if (this.frames == this.wait) {
-                this.frames = 0
+            if (this.frameCount == this.wait) {
+                this.frameCount = 0
                 this.gameStatus.showEx = false
             }
-        this.frames++
+        this.frameCount++
+        }
+
+        if(this.gameStatus.showGr) {
+            if (this.frameCount <= this.wait) {
+            this.greatCheer.drawGreatCheer()
+        }
+            if (this.frameCount == this.wait) {
+                this.frameCount = 0
+                this.gameStatus.showGr = false
+            }
+        this.frameCount++
         }
     }
 
