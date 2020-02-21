@@ -12,6 +12,8 @@ class SegmentedMedia {
     private segmentPosition: number[]
     private selectedSegment: number
 
+    private direction: number
+
     constructor() {
         this.frameWidth = 350
         this.urlRoot = 'https://source.unsplash.com/'
@@ -22,6 +24,7 @@ class SegmentedMedia {
         this.noOfSegments = 3
         this.segmentPosition = []
         this.selectedSegment = -1
+        this.direction = 1
     }
 
     /**Gets the basic offset for the media*/
@@ -68,19 +71,27 @@ class SegmentedMedia {
 
         //updates the x-position
         this.xPos += this.noOfSegments * 1.5
-        if (this.xPos >= width) {
+        if (this.xPos >= width - 350) {
             this.xPos = 0
-        }
+
+            if (this.direction == 1) {
+                this.direction = 0
+            } else {
+                this.direction = 1
+            }                          
+        } 
 
         for (let i = 0; i < this.noOfSegments; i++) {
             //Updates array with the new position
             if (i > this.selectedSegment) {
                 this.segmentPosition[i] = this.xPos
+
                 //reverse direction for alternate images
-                if (i % 2 === 1) {
-                    this.segmentPosition[i] = width - (this.xPos + this.frameWidth)
+                if (i % 2 === this.direction) {
+                        this.segmentPosition[i] = width - (this.xPos + this.frameWidth)
                 }
             }
+
             //Renders the image 
             image(this.img, this.segmentPosition[i], offsets[0] + (this.pieceHeight * i),
                 this.frameWidth, this.pieceHeight, 0, this.pieceHeight * i, this.frameWidth, this.pieceHeight)

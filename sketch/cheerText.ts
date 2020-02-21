@@ -15,5 +15,3 @@ class CheerText {
         image(this.greatCheer, (width/2 - 150), (height/2 - 150))
     }
 }
-
-/* image(img, x, y, [width], [height]) */
